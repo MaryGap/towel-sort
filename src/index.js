@@ -1,7 +1,15 @@
 
 // You should implement your task here.
-
-module.exports = function towelSort (matrix) {
-  let result = matrix.reduce((prev, cur)=> prev + cur)
-  return result.sort((a,b) => a - b);
-}
+module.exports = function towelSort(matrix) {
+  if (matrix === undefined) {
+      return [];
+  } 
+  else {
+      let array = [];
+      if (matrix.length === 0) return array;
+      matrix.map((element, ind) => {
+          ind % 2 === 1 ? array.push(element.reverse()) : array.push(element);
+      });
+      return array.flat();
+  }
+};
